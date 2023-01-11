@@ -12,10 +12,11 @@ Welcome to my TypeScript project page
 ---
 
 ### :technologist: What you will find here :
-- :computer:  5 projects where I explored TypeScript in combination with other technologies. 
+- :computer:  4 projects where I explored TypeScript in combination with other technologies. 
 - :running: trainingGround > Salt´s TypeScript precourse (focused on TDD).
 - :construction_worker: random-user > Fetching data from the random user API
 - :open_book: todo > to do list with TypeScript, Go and Vite.
+- :shopping: Ecommerce >
 
 
 
