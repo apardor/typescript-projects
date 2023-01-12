@@ -16,8 +16,8 @@ Welcome to my TypeScript project page
 - :running: trainingGround > Salt´s TypeScript precourse (focused on TDD).
 - :construction_worker: random-user > Fetching data from the random user API
 - :open_book: todo > to do list with TypeScript, Go and Vite.
-- :shopping: Ecommerce > build with Vite, TypeScript and Bootstrap
-- :dog: CRUD > REST API build with Prisma, Express, TypeScript, JWT, and bcrypt
+- :shopping: Ecommerce > built with Vite, TypeScript and Bootstrap
+- :dog: CRUD > REST API built with Prisma, Express, TypeScript, JWT, and bcrypt
 
 
 
