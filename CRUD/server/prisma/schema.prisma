@@ -22,9 +22,13 @@ model Pet {
   id        String   @id @default(uuid())
   createAt  DateTime @default(now())
   name      String
+  breed       String
+  birthDate   String
   ownedById String
   ownedBy   User     @relation(fields: [ownedById], references: [id])
   updates   Update[]
+  @@unique([id, ownedById])
+
 }
 
 enum UPDATE_STATUS {

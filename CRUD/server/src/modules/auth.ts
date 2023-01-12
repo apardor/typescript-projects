@@ -1,7 +1,6 @@
 import jwt from 'jsonwebtoken'
-import  express, { Application, Request, Response, NextFunction} from 'express'
-import { userInfo } from 'os'
-
+import { Request, Response, NextFunction} from 'express'
+import * as bcrypt from 'bcrypt'
 
 export const createJWT = (user) => {
     const token = jwt.sign({
@@ -39,6 +38,12 @@ export const protect = (req: Request, res: Response, next: NextFunction ) => {
         res.json({message: 'not valid/true token '})
         return
     }
+}
 
- 
+export const comparePasswords = (password, hash) => {
+    return bcrypt.compare(password, hash);
+};
+
+export const hashPassword = (password) => {
+    return bcrypt.hash(password, 5)
 }
