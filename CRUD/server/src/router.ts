@@ -1,6 +1,7 @@
 import { Router, Request, Response } from 'express';
-import { body, oneOf, validationResult } from "express-validator";
+import { body, validationResult } from "express-validator";
 import { createPet, deletePet, getOnePet, getPets, updatePet } from './handlers/pet';
+import { createUpdate, deleteUpdate, getOneUpdate, getUpdates, updateUpdate } from './handlers/updates';
 import { handleInputErrors } from './modules/middleware';
 
 
@@ -15,20 +16,21 @@ router.delete('/pets/:id', deletePet)
 
 
 /*Update*/
-router.get('/update/', () => {})
-router.get('/update/:id', () => {})
+router.get('/update/', getUpdates)
+router.get('/update/:id', getOneUpdate)
 router.put('/update/:id', 
     body('title').optional(),
     body('body').optional(), 
-    body('status').isIn(['AT_HOME', 'AT_VET','VACCINATED','HOSPITALIZED','CHECKED']),
-    (req: Request ,res: Response) => {}
+    body('status').isIn(['AT_HOME', 'AT_VET','VACCINATED','HOSPITALIZED','CHECKED']).optional(),
+    updateUpdate
 )
 router.post('/update', 
     body('title').exists().isString(),
     body('body').exists().isString(), 
-    (req: Request ,res: Response) => {}
+    body('petId').exists().isString(),
+    createUpdate
 )
-router.delete('/update/:id', () => {})
+router.delete('/update/:id', deleteUpdate)
 
 
 /*Update Point*/
