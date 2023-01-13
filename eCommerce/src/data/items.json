@@ -22,5 +22,17 @@
       "name": "Car",
       "price": 14000,
       "imgUrl": "/public/imgs/car.jpeg"
+    },
+    {
+      "id": 5,
+      "name": "Phone",
+      "price": 999,
+      "imgUrl": "/public/imgs/phone.jpeg"
+    },
+    {
+      "id": 6,
+      "name": "Bicycle",
+      "price": 1100,
+      "imgUrl": "/public/imgs/bike.jpeg"
     }
   ]
