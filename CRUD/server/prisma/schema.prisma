@@ -21,7 +21,7 @@ model User {
 model Pet {
   id        String   @id @default(uuid())
   createAt  DateTime @default(now())
-  name      String
+  name      String  @db.VarChar(255)
   breed       String
   birthDate   String
   ownedById String
@@ -42,7 +42,7 @@ enum UPDATE_STATUS {
 model Update {
   id          String        @id @default(uuid())
   createAt    DateTime      @default(now())
-  updatedAt   DateTime
+  updatedAt   DateTime      @updatedAt
   title       String
   body        String
   status      UPDATE_STATUS @default(AT_HOME)

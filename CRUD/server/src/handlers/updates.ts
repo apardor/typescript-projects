@@ -36,7 +36,11 @@ export const createUpdate = async (req: Request, res: Response) => {
         return res.json({message: 'no correct id'})
     }
     const update = await prisma.update.create({
-        data: req.body
+      data: {
+        title: req.body.title,
+        body: req.body.body,
+        pet: {connect: {id: pet.id}}
+      }
     })
     res.json({data: update})
 }

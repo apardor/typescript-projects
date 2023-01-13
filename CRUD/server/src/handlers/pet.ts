@@ -1,5 +1,6 @@
 import prisma from "../db";
-import { Request, Response } from 'express';
+import { NextFunction, Request, Response } from 'express';
+import { nextTick } from "process";
 
 
 //Get all
@@ -29,16 +30,20 @@ export const getOnePet = async (req: Request, res: Response ) => {
 }
 
 //Create one
-export const createPet = async (req: Request, res: Response) => {
-    const pet = await prisma.pet.create({
-        data:{
-            name: req.body.name,
-            breed: req.body.breed,
-            birthDate: req.body.birthDate,
-            ownedById: req.user.id
-        }
-    })
-    res.json({data: pet})
+export const createPet = async (req: Request, res: Response, next: NextFunction) => {
+    try{
+        const pet = await prisma.pet.create({
+            data:{
+                name: req.body.name,
+                breed: req.body.breed,
+                birthDate: req.body.birthDate,
+                ownedById: req.user.id
+            }
+        })
+        res.json({data: pet})
+    } catch(e) {
+        next(e)
+    }
 }
 
 //Update puppy

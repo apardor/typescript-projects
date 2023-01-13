@@ -1,4 +1,4 @@
-import { Router, Request, Response } from 'express';
+import { Router, Request, Response, NextFunction } from 'express';
 import { body, validationResult } from "express-validator";
 import { createPet, deletePet, getOnePet, getPets, updatePet } from './handlers/pet';
 import { createUpdate, deleteUpdate, getOneUpdate, getUpdates, updateUpdate } from './handlers/updates';
@@ -49,5 +49,11 @@ router.post('/updatepoint',
     () => {})
 
 router.delete('/updatepoint/:id', () => {})
+
+router.use((err, req: Request, res: Response, next: NextFunction)=>{
+    console.log(err);
+    res.json({message: 'in router handler'})
+    
+})
 
 export default router
